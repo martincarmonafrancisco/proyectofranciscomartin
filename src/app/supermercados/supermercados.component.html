@@ -1,0 +1,59 @@
+<h2>Mis Supermercados</h2>
+
+<table>
+	<tr>
+		<th>ID:</th>
+		<th><input #supermercadoId /></th>
+	</tr>
+	<tr>
+		<th>Nombre del Supermercado:</th>
+		<th><input #supermercadoNombre /></th>
+	</tr>
+	<tr>
+		<th>Municipio:</th>
+		<th><input #supermercadoMunicipio /></th>
+	</tr>
+	<tr>
+		<th>Dirección del Supermercado:</th>
+		<th><input #supermercadoDireccion /></th>
+	</tr>
+	<tr>
+		<th>Número de Teléfono:</th>
+		<th><input #supermercadoNumtelefono /></th>
+	</tr>
+	<tr>
+		<th colspan="2">
+			<button
+        (click)="add(supermercadoId.value, supermercadoNombre.value,supermercadoMunicipio.value, supermercadoDireccion.value, supermercadoNumtelefono.value);supermercadoNombre.value='';supermercadoMunicipio.value='';supermercadoDireccion.value='';supermercadoNumtelefono.value=''"
+      >
+        Añadir Supermercado
+      </button>
+		</th>
+	</tr>
+</table>
+
+<br /><br />
+<table class="supermercados">
+	<tr>
+		<th>Nombre</th>
+		<th>Municipio</th>
+		<th>Dirección</th>
+		<th>Número Teléfono</th>
+		<th>ID</th>
+	</tr>
+	<tr *ngFor="let supermercado of supermercados">
+		<th>
+			<a routerLink="/detail2/{{supermercado._nombre}}"> {{supermercado._nombre}} </a>
+		</th>
+		<th>{{supermercado._municipio}}</th>
+		<th>{{supermercado._direccion}}</th>
+		<th>{{supermercado._numtelefono}}</th>
+		<th>{{supermercado._id}}</th>
+		<!-- <th>{{supermercado._productos}}</th> 
+		<th>
+			<button class="delete" title="delete supermercado" (click)="delete(supermercado)">
+        x
+      </button>
+		</th>-->
+	</tr>
+</table>

@@ -1,0 +1,61 @@
+<div *ngIf="producto != undefined">
+  <h2>{{producto._nombre}} Details</h2>
+  <div>
+    <label
+      >Nombre:
+      <input
+        [(ngModel)]="producto._nombre"
+        placeholder="{{producto._nombre}}"
+      />
+    </label>
+    <!--
+    <label
+      >salary:
+      <input [(ngModel)]="hero.salary" placeholder="salary" />
+    </label>
+    -->
+    <br />
+    <label
+      >Producto precio:
+      <input
+        #productoPrecio
+        [(ngModel)]="producto._precio"
+        placeholder="precio"
+      />
+    </label>
+    <br />
+    <label
+      >Producto cantidad:
+      <input
+        #productoCantidad
+        [(ngModel)]="producto._cantidad"
+        placeholder="cantidad"
+      />
+    </label>
+    <br />
+    <label
+      >Producto caducidad:
+      <input
+        #productoFechaCaducidad
+        [(ngModel)]="producto._caducidad"
+        placeholder="caducidad"
+      />
+    </label>
+    <br />
+    <label
+      >Producto tipo:
+      <input #productoTipo [(ngModel)]="producto._tipo" placeholder="tipo" />
+    </label>
+    <br />
+    <label
+      >Supermercado:
+      <input
+        #productoSupermercado
+        [(ngModel)]="producto._supermercado"
+        placeholder="supermercado"
+      />
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save(productoPrecio.value)">save</button>
+</div>

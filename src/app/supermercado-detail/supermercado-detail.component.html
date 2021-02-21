@@ -1,0 +1,106 @@
+<div *ngIf="supermercado != undefined">
+	<h2>{{supermercado._nombre}} Details</h2>
+	<div>
+		<label
+      >ID:
+      <input
+        [(ngModel)]="supermercado._id"
+        placeholder="{{supermercado._id}}"
+      />
+    </label>
+		<br />
+		<label
+      >Supermercado Nombre:
+      <input
+        #supermercadoNombre
+        [(ngModel)]="supermercado._nombre"
+        placeholder="{{supermercado._nombre}}"
+      />
+    </label>
+		<br />
+		<label
+      >Municipio:
+      <input
+        #supermercadoMunicipio
+        [(ngModel)]="supermercado._municipio"
+        placeholder="municipio"
+      />
+    </label>
+		<br />
+		<label
+      >Direccion:
+      <input
+        #supermercadoDireccion
+        [(ngModel)]="supermercado._direccion"
+        placeholder="direccion"
+      />
+    </label>
+		<br />
+		<label
+      >Número Teléfono:
+      <input
+        #supermercadoNumtelefono
+        [(ngModel)]="supermercado._numtelefono"
+        placeholder="numtelefono"
+      />
+    </label>
+		<br />
+  </div>
+		<button (click)="goBack()">go back</button>
+		<button (click)="save(supermercadoMunicipio.value)">save</button>
+
+		<br><br>
+    <h2>Productos</h2>
+    <table class="productos">
+      <tr>
+				<th>Nombre</th>
+				<th>Precio</th>
+				<th>Cantidad</th>
+				<th>Caducidad</th>
+				<th>Tipo</th>
+			</tr>
+			<tr *ngFor="let s of supermercado._productos">
+				<td>{{s._nombre}}</td>
+				<td>{{s._precio}}</td>
+				<td>{{s._caducidad}}</td>
+				<td>{{s._cantidad}}</td>
+				<td>{{s._tipo}}</td>
+			</tr>
+		</table>
+		<h2>¿Desea añadir algún producto más a {{supermercado._nombre}}?</h2>
+		<table class="productos">
+			<tr>
+				<th>ID:</th>
+				<th><input #productoId /></th>
+			</tr>
+			<tr>
+				<th>Nombre del producto:</th>
+				<th><input #productoNombre /></th>
+			</tr>
+			<tr>
+				<th>Precio del producto:</th>
+				<th><input #productoPrecio /></th>
+			</tr>
+			<tr>
+				<th>Cantidad:</th>
+				<th><input #productoCantidad /></th>
+			</tr>
+			<tr>
+				<th>Fecha de Caducidad:</th>
+				<th><input #productoFechaCaducidad /></th>
+			</tr>
+			<tr>
+				<th>Tipo:</th>
+				<th><input #productoTipo /></th>
+			</tr>
+			<tr>
+				<th>
+					<button
+            (click)="add(productoId.value, productoNombre.value, productoPrecio.value, productoCantidad.value, productoFechaCaducidad.value, productoTipo.value);productoNombre.value=''; productoPrecio.value='';productoCantidad.value=''; productoFechaCaducidad.value='';productoTipo.value=''"
+          >
+            Añadir
+          </button>
+				</th>
+			</tr>
+		</table>
+	</div>
